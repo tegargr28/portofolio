@@ -74,7 +74,7 @@ const TagList = ({ tags }) => (
     {tags.map((tag) => (
       <span
         key={tag}
-        className="px-2.5 py-1 text-xs font-medium rounded-full border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400"
+        className="px-2.5 py-1 text-xs font-medium rounded-full border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 group-hover:border-blue-300 dark:group-hover:border-blue-500/50 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300"
       >
         {tag}
       </span>
@@ -106,14 +106,16 @@ const Projects = () => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid md:grid-cols-[1fr_15rem] gap-4 md:gap-8 py-8 border-t border-gray-200 dark:border-gray-800 px-2 -mx-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-white/5 transition-colors"
+              className="group relative grid md:grid-cols-[1fr_15rem] gap-4 md:gap-8 py-8 border-t border-gray-200 dark:border-gray-800 px-2 -mx-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-white/5 transition-colors"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
               transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
+              <span className="absolute left-0 top-0 h-full w-[3px] rounded bg-blue-600 dark:bg-blue-400 scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" aria-hidden="true" />
               <div>
-                <h4 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                <h4 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white flex items-center gap-2 group-hover:translate-x-1.5 transition-transform duration-300">
                   {project.title}
                   <FaArrowRight className="text-base text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </h4>
@@ -122,7 +124,7 @@ const Projects = () => {
               </div>
               <ul className="space-y-1.5 md:text-right">
                 {project.stats.map((stat) => (
-                  <li key={stat} className="text-sm font-medium text-gray-700 dark:text-gray-300">{stat}</li>
+                  <li key={stat} className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">{stat}</li>
                 ))}
               </ul>
             </motion.a>
@@ -137,20 +139,24 @@ const Projects = () => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid sm:grid-cols-[11rem_1fr] gap-4 md:gap-8 py-8 border-t border-gray-200 dark:border-gray-800 px-2 -mx-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-white/5 transition-colors items-center"
+              className="group relative grid sm:grid-cols-[11rem_1fr] gap-4 md:gap-8 py-8 border-t border-gray-200 dark:border-gray-800 px-2 -mx-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-white/5 transition-colors items-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
               transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                loading="lazy"
-                className="hidden sm:block w-44 h-28 object-cover rounded-lg ring-1 ring-gray-200 dark:ring-gray-800"
-              />
+              <span className="absolute left-0 top-0 h-full w-[3px] rounded bg-blue-600 dark:bg-blue-400 scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" aria-hidden="true" />
+              <div className="hidden sm:block w-44 h-28 overflow-hidden rounded-lg ring-1 ring-gray-200 dark:ring-gray-800">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
               <div>
-                <h4 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                <h4 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white flex items-center gap-2 group-hover:translate-x-1.5 transition-transform duration-300">
                   {project.title}
                   <FaArrowRight className="text-base text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </h4>
