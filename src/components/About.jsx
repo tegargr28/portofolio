@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaFigma, FaLaravel } from 'react-icons/fa'
-import { SiTailwindcss } from 'react-icons/si'
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaFigma, FaLaravel, FaPython } from 'react-icons/fa'
+import { SiTailwindcss, SiSelenium, SiCypress, SiPytest, SiPostman, SiJira, SiMysql, SiGithubactions } from 'react-icons/si'
 
 const About = () => {
   const iconVariants = {
@@ -12,7 +12,7 @@ const About = () => {
     }
   }
 
-  const skills = [
+  const devSkills = [
     { icon: FaHtml5, label: 'HTML5' },
     { icon: FaCss3Alt, label: 'CSS3' },
     { icon: FaJs, label: 'JavaScript' },
@@ -22,6 +22,27 @@ const About = () => {
     { icon: FaFigma, label: 'Figma' },
     { icon: FaLaravel, label: 'Laravel' },
   ]
+
+  const qaSkills = [
+    { icon: SiSelenium, label: 'Selenium' },
+    { icon: SiCypress, label: 'Cypress' },
+    { icon: SiPytest, label: 'Pytest' },
+    { icon: FaPython, label: 'Python' },
+    { icon: SiPostman, label: 'Postman' },
+    { icon: SiMysql, label: 'MySQL / SQL' },
+    { icon: SiJira, label: 'Jira' },
+    { icon: SiGithubactions, label: 'GitHub Actions' },
+  ]
+
+  const SkillRow = ({ items }) => (
+    <div className="flex flex-wrap justify-center gap-8 text-4xl text-gray-700 dark:text-gray-400">
+      {items.map((skill) => (
+        <motion.div key={skill.label} variants={iconVariants} whileHover="hover" whileTap={{ scale: 0.9 }}>
+          <skill.icon title={skill.label} aria-label={skill.label} />
+        </motion.div>
+      ))}
+    </div>
+  )
 
   return (
     <motion.section
@@ -44,13 +65,10 @@ const About = () => {
         transition={{ duration: 0.3 }}
       >
         <h3 className="text-2xl font-semibold mb-8 text-gray-800 dark:text-blue-300">Tech Stack</h3>
-        <div className="flex flex-wrap justify-center gap-8 text-4xl text-gray-700 dark:text-gray-400">
-          {skills.map((skill) => (
-            <motion.div key={skill.label} variants={iconVariants} whileHover="hover" whileTap={{ scale: 0.9 }}>
-              <skill.icon title={skill.label} aria-label={skill.label} />
-            </motion.div>
-          ))}
-        </div>
+        <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-5">Quality Assurance</p>
+        <SkillRow items={qaSkills} />
+        <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mt-10 mb-5">Development</p>
+        <SkillRow items={devSkills} />
       </motion.div>
     </motion.section>
   )
