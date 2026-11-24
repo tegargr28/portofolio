@@ -1,8 +1,24 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { FaLinkedin, FaGithub, FaTwitter, FaFileDownload, FaMapMarkerAlt } from 'react-icons/fa'
 
+const headlines = [
+  { first: 'Quality first,', second: 'in every release.' },
+  { first: 'Finding bugs', second: 'before users do.' },
+  { first: 'Tested by hand,', second: 'proven by automation.' },
+  { first: 'Every flow checked,', second: 'end to end.' }
+]
+
 const Hero = () => {
+  const [headlineIndex, setHeadlineIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeadlineIndex((prev) => (prev + 1) % headlines.length)
+    }, 3200)
+    return () => clearInterval(timer)
+  }, [])
+
   const socialLinks = [
     {
       icon: FaLinkedin,
@@ -13,7 +29,7 @@ const Hero = () => {
     {
       icon: FaGithub,
       label: 'GitHub',
-      href: "https://github.com/Tegarg28",
+      href: "https://github.com/tegargr28",
       color: "text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
     },
     {
@@ -33,11 +49,24 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-tight text-gray-900 dark:text-white">
-            Quality first,
-            <br />
-            <span className="text-gray-400 dark:text-gray-500">in every release.</span>
-          </p>
+          <div className="min-h-[2.16em] text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-tight">
+            <span className="sr-only">Quality first, in every release.</span>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={headlineIndex}
+                aria-hidden="true"
+                initial={{ opacity: 0, y: 26 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -26 }}
+                transition={{ duration: 0.45, ease: 'easeOut' }}
+                className="text-gray-900 dark:text-white"
+              >
+                {headlines[headlineIndex].first}
+                <br />
+                <span className="text-gray-400 dark:text-gray-500">{headlines[headlineIndex].second}</span>
+              </motion.p>
+            </AnimatePresence>
+          </div>
           <h1 className="mt-10 text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
             Tegar Gemilang
             <span className="block mt-1 text-lg md:text-xl font-medium text-gray-500 dark:text-gray-400">
