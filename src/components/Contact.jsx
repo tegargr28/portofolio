@@ -32,45 +32,40 @@ const Contact = () => {
     }
   }
 
+  const infoItems = [
+    {
+      icon: FiMail,
+      label: 'Email',
+      content: (
+        <a href="mailto:tegargemilangrasidi28@gmail.com" className="hover:text-blue-600 dark:hover:text-blue-400 break-all">
+          tegargemilangrasidi28@gmail.com
+        </a>
+      )
+    },
+    { icon: FiMapPin, label: 'Location', content: <span>Karawang, Indonesia</span> },
+    { icon: FiPhone, label: 'Phone', content: <span>(+62) 89529******</span> }
+  ]
+
   return (
-    <section id="contact" className="py-24 px-4 transition-colors duration-300 scroll-mt-20">
-      <div className="max-w-6xl mx-auto">
-      <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">Contact</p>
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Get In Touch</h2>
-      <p className="max-w-2xl text-gray-600 dark:text-gray-400 mb-12">
-        I'm always open to discuss new opportunities, freelance projects, or collaboration ideas. Feel free to reach out!
-      </p>
-      </div>
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-        <motion.div
-          className="rounded-2xl p-8 space-y-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800 h-fit"
-          whileTap={{ scale: 0.98 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="flex items-center space-x-4">
-            <FiMail className="text-xl text-blue-600 dark:text-blue-400 shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-white">Email</h4>
-              <a href="mailto:tegargemilangrasidi28@gmail.com" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 break-all">
-                tegargemilangrasidi28@gmail.com
-              </a>
+    <section id="contact" className="py-28 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-3">04 — Contact</p>
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Let's Work Together</h2>
+        <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          I'm always open to discuss new opportunities, freelance projects, or collaboration ideas. Feel free to reach out!
+        </p>
+
+        <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4">
+          {infoItems.map((item) => (
+            <div key={item.label} className="flex items-center gap-3">
+              <item.icon className="text-xl text-blue-600 dark:text-blue-400 shrink-0" />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-500">{item.label}</p>
+                <div className="text-gray-800 dark:text-gray-200 font-medium">{item.content}</div>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center space-x-4">
-            <FiMapPin className="text-xl text-blue-600 dark:text-blue-400 shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-white">Location</h4>
-              <p className="text-gray-700 dark:text-gray-300">Karawang, Indonesia</p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4">
-            <FiPhone className="text-xl text-blue-600 dark:text-blue-400 shrink-0" />
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-white">Phone</h4>
-              <p className="text-gray-700 dark:text-gray-300">(+62) 89529******</p>
-            </div>
-          </div>
-        </motion.div>
+          ))}
+        </div>
 
         <motion.form
           name="contact"
@@ -78,7 +73,7 @@ const Contact = () => {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
-          className="rounded-2xl p-8 space-y-4 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800"
+          className="mt-12 max-w-3xl rounded-2xl p-8 space-y-4 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800"
           transition={{ duration: 0.3 }}
         >
           <input type="hidden" name="form-name" value="contact" />
@@ -104,9 +99,9 @@ const Contact = () => {
             disabled={status === 'sending'}
             className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-7 py-3 rounded-lg font-semibold hover:bg-gray-700 dark:hover:bg-gray-200 transition disabled:opacity-60"
             whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.97 }}
           >
-            {status === 'sending' ? 'Sending...' : 'Send'}
+            {status === 'sending' ? 'Sending...' : 'Send Message'}
           </motion.button>
           {status === 'success' && (
             <p className="text-sm font-medium text-green-600 dark:text-green-400" role="status">

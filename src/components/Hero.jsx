@@ -1,177 +1,121 @@
-import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import {
-  FaLinkedin,
-  FaGithub,
-  FaTwitter,
-  FaFileDownload
-} from 'react-icons/fa'
+import React from 'react'
+import { motion } from 'framer-motion'
+import { FaLinkedin, FaGithub, FaTwitter, FaFileDownload, FaMapMarkerAlt } from 'react-icons/fa'
 
 const Hero = () => {
-  const [index, setIndex] = useState(0)
-
-  const texts = [
-    "Passionate about crafting elegant digital experiences.",
-    "I transform ideas into beautiful, functional web solutions.",
-    "Lover of clean code and seamless interfaces.",
-    "Always curious to learn and grow through technology."
-  ]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % texts.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
-
   const socialLinks = [
     {
       icon: FaLinkedin,
       label: 'LinkedIn',
       href: "https://www.linkedin.com/in/muhammad-tegar-gemilang-rasidi-6095b3138/",
-      color: "text-blue-600 hover:text-blue-700"
+      color: "text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
     },
     {
       icon: FaGithub,
       label: 'GitHub',
       href: "https://github.com/Tegarg28",
-      color: "text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300"
+      color: "text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
     },
     {
       icon: FaTwitter,
       label: 'Twitter',
       href: "https://twitter.com/tegargemilang",
-      color: "text-sky-500 hover:text-sky-600"
+      color: "text-gray-500 hover:text-sky-500 dark:text-gray-400 dark:hover:text-sky-400"
     }
   ]
 
   return (
-    <section
-      id="home"
-      className="min-h-screen w-full flex items-center py-28 relative scroll-mt-20"
-    >
-
-      <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-10 relative z-10 max-w-6xl">
+    <section id="home" className="w-full pt-36 pb-24 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row gap-14 lg:gap-10">
         <motion.div
-          className="flex-1 text-center lg:text-left"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          className="flex-1 min-w-0"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300">
-              <span className="w-2 h-2 rounded-full bg-green-500"></span>
-              Open to QA Engineer opportunities
-            </span>
-            <p className="text-lg text-gray-500 dark:text-gray-400">
-              Hello, I'm
-            </p>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-gray-900 dark:text-white">
-              Tegar Gemilang
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-blue-600 dark:text-blue-400">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-8">
+            Portfolio — QA Engineer
+          </p>
+          <p className="text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-tight text-gray-900 dark:text-white">
+            I break software
+            <br />
+            <span className="text-gray-400 dark:text-gray-500">before it breaks users.</span>
+          </p>
+          <h1 className="mt-10 text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+            Tegar Gemilang
+            <span className="block mt-1 text-lg md:text-xl font-medium text-gray-500 dark:text-gray-400">
               QA Engineer &amp; Web Developer
-            </h2>
-          </motion.div>
+            </span>
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-400 max-w-xl">
+            Informatics Engineering graduate focused on Quality Assurance: designing and executing test cases,
+            reporting defects, and automating key flows with Selenium, Pytest and Cypress — backed by a web
+            development background that helps me understand how defects arise.
+          </p>
 
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={index}
-              className="text-lg mb-10 text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 min-h-[3.5rem]"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5 }}
-            >
-              {texts[index]}
-            </motion.p>
-          </AnimatePresence>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
-          >
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <motion.a
               href="#projects"
-              className="inline-block px-7 py-3
-                bg-gray-900 dark:bg-white
-                text-white dark:text-gray-900
-                rounded-lg
-                hover:bg-gray-700 dark:hover:bg-gray-200
-                transition-colors
-                font-semibold"
+              className="inline-block px-7 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors font-semibold"
               whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.97 }}
             >
-              Explore My Work
+              See My Work
             </motion.a>
-
             <motion.a
               href="/CV_TegarGemilangRasidi_QA.pdf"
               download
-              className="inline-block px-7 py-3
-                border border-gray-400 dark:border-gray-600
-                text-gray-800 dark:text-gray-200
-                rounded-lg
-                hover:bg-gray-100 dark:hover:bg-white/10
-                transition-colors
-                font-semibold
-                flex items-center gap-2"
+              className="inline-flex items-center gap-2 px-7 py-3 border border-gray-400 dark:border-gray-600 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors font-semibold"
               whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.97 }}
             >
               <FaFileDownload /> Download CV
             </motion.a>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="mt-8 flex justify-center lg:justify-start space-x-4"
-          >
-            {socialLinks.map((social) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className={`text-2xl ${social.color} transition-all`}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <social.icon />
-              </motion.a>
-            ))}
-          </motion.div>
+          <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-gray-500 dark:text-gray-400">
+            <span className="inline-flex items-center gap-2">
+              <FaMapMarkerAlt className="text-blue-600 dark:text-blue-400" /> Karawang, Indonesia
+            </span>
+            <span className="inline-flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300">
+              <span className="w-2 h-2 rounded-full bg-green-500"></span>
+              Open to QA Engineer opportunities
+            </span>
+            <span className="flex items-center space-x-4">
+              {socialLinks.map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className={`text-xl ${social.color} transition-colors`}
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <social.icon />
+                </motion.a>
+              ))}
+            </span>
+          </div>
         </motion.div>
 
         <motion.div
-          className="flex-1 flex justify-center lg:justify-end"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          className="shrink-0 flex justify-center lg:justify-end"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
         >
-          <motion.div
-            className="relative w-64 h-64 md:w-80 md:h-96
-              overflow-hidden rounded-2xl
-              ring-1 ring-gray-200 dark:ring-gray-800
-              transform hover:scale-[1.02] transition-transform"
-            transition={{ duration: 0.3 }}
-          >
+          <div className="w-64 sm:w-72 xl:w-80">
             <img
               src="tegar.webp"
               alt="Tegar Gemilang"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-[26rem] object-cover object-center rounded-xl ring-1 ring-gray-200 dark:ring-gray-800"
             />
-          </motion.div>
+            <p className="mt-3 text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 text-center lg:text-right">
+              Manual • Automation • API • SQL
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
