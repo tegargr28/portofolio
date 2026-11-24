@@ -37,9 +37,9 @@ const Hero = () => {
             Portfolio — QA Engineer
           </p>
           <p className="text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-tight text-gray-900 dark:text-white">
-            I break software
+            Quality first,
             <br />
-            <span className="text-gray-400 dark:text-gray-500">before it breaks users.</span>
+            <span className="text-gray-400 dark:text-gray-500">in every release.</span>
           </p>
           <h1 className="mt-10 text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
             Tegar Gemilang
