@@ -1,41 +1,77 @@
-import React, { useState } from 'react'
-import { FiMenu, FiX } from 'react-icons/fi'
+import React, { useState, useEffect } from 'react'
+import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
-  const toggleMenu = () => setOpen(!open)
-  const toggleDarkMode = () => {
-    document.documentElement.classList.toggle('dark')
-  }
+  const [dark, setDark] = useState(() =>
+    typeof document !== 'undefined' ? document.documentElement.classList.contains('dark') : false
+  )
 
-  const navClass = "text-gray-700 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-300"
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark)
+    try {
+      localStorage.setItem('theme', dark ? 'dark' : 'light')
+    } catch (e) {}
+  }, [dark])
+
+  const toggleMenu = () => setOpen(!open)
+  const toggleDarkMode = () => setDark((prev) => !prev)
+
+  const links = [
+    { href: '#home', label: 'Home' },
+    { href: '#about', label: 'About Me' },
+    { href: '#education', label: 'Experience' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#contact', label: 'Contact' },
+  ]
+
+  const navClass =
+    'text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-300 font-medium transition-colors duration-300'
+
+  const themeButton = (
+    <button
+      onClick={toggleDarkMode}
+      aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-pressed={dark}
+      className="p-2 rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-yellow-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+    >
+      {dark ? <FiSun size={18} /> : <FiMoon size={18} />}
+    </button>
+  )
 
   return (
-    <nav className="fixed w-full z-50 bg-white dark:bg-gray-900 shadow-md transition-colors duration-300">
+    <nav className="fixed w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm border-b border-gray-200/70 dark:border-gray-800 transition-colors duration-300">
       <div className="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
-        <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-400">Tegarg28</h1>
-        <div className="md:hidden">
-          <button onClick={toggleMenu} aria-label="Toggle Menu">
+        <a href="#home" className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          Tegar<span className="text-blue-600 dark:text-blue-400"> Gemilang</span>
+        </a>
+        <div className="md:hidden flex items-center gap-3">
+          {themeButton}
+          <button onClick={toggleMenu} aria-label="Toggle Menu" className="text-gray-800 dark:text-gray-100">
             {open ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#home" className={navClass}>Home</a>
-          <a href="#about" className={navClass}>About Me</a>
-          <a href="#education" className={navClass}>Experience</a>
-          <a href="#projects" className={navClass}>Projects</a>
-          <a href="#contact" className={navClass}>Contact</a>
-          <button onClick={toggleDarkMode} className="text-sm px-3 py-1 border border-gray-400 dark:border-blue-500 rounded hover:bg-gray-100 dark:hover:bg-blue-800 dark:text-blue-400 dark:hover:text-white transition">Toggle Mode</button>
+          {links.map((link) => (
+            <a key={link.href} href={link.href} className={navClass}>
+              {link.label}
+            </a>
+          ))}
+          {themeButton}
         </div>
       </div>
       {open && (
-        <div className="md:hidden bg-white dark:bg-gray-900 shadow-md px-6 pb-4">
-          <a href="#home" className="block py-2" onClick={() => setOpen(false)}>Home</a>
-          <a href="#about" className="block py-2" onClick={() => setOpen(false)}>About Me</a>
-          <a href="#education" className="block py-2" onClick={() => setOpen(false)}>Experience</a>
-          <a href="#projects" className="block py-2" onClick={() => setOpen(false)}>Projects</a>
-          <a href="#contact" className="block py-2" onClick={() => setOpen(false)}>Contact</a>
-          <button onClick={toggleDarkMode} className="mt-2 w-full text-left px-3 py-1 border border-gray-400 dark:border-blue-500 rounded hover:bg-gray-100 dark:hover:bg-blue-900 dark:text-blue-400 dark:hover:text-white transition">Toggle Mode</button>
+        <div className="md:hidden bg-white dark:bg-gray-900 shadow-md px-6 pb-4 border-t border-gray-100 dark:border-gray-800">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="block py-2 text-gray-800 dark:text-gray-100 font-medium"
+              onClick={() => setOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       )}
     </nav>
