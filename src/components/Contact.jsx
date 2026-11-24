@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 
@@ -7,13 +7,29 @@ const Contact = () => {
     'w-full border border-gray-300 dark:border-gray-700 p-3 rounded-md bg-transparent dark:bg-gray-700 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all'
   const labelClass = 'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5 text-left'
 
-  const handleSend = () => {
-    const name = document.querySelector('#contact-name').value
-    const email = document.querySelector('#contact-email').value
-    const message = document.querySelector('#contact-message').value
-    const subject = encodeURIComponent(`Contact from ${name}`)
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`)
-    window.location.href = `mailto:tegargemilangrasidi28@gmail.com?subject=${subject}&body=${body}`
+  const [fields, setFields] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
+
+  const handleChange = (e) => setFields({ ...fields, [e.target.name]: e.target.value })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ 'form-name': 'contact', ...fields }).toString()
+      })
+      if (response.ok) {
+        setStatus('success')
+        setFields({ name: '', email: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -55,32 +71,54 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        <motion.div
+        <motion.form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
           className="rounded-2xl shadow-lg p-8 space-y-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
           whileHover={{ boxShadow: "0 0 15px rgba(59, 130, 246, 0.5)" }}
           transition={{ duration: 0.3 }}
         >
+          <input type="hidden" name="form-name" value="contact" />
+          <p className="hidden">
+            <label>
+              Don't fill this out if you're human: <input name="bot-field" />
+            </label>
+          </p>
           <div>
             <label htmlFor="contact-name" className={labelClass}>Your Name</label>
-            <input id="contact-name" type="text" placeholder="Your Name" className={inputClass} />
+            <input id="contact-name" name="name" type="text" required placeholder="Your Name" value={fields.name} onChange={handleChange} className={inputClass} />
           </div>
           <div>
             <label htmlFor="contact-email" className={labelClass}>Your Email</label>
-            <input id="contact-email" type="email" placeholder="Your Email" className={inputClass} />
+            <input id="contact-email" name="email" type="email" required placeholder="Your Email" value={fields.email} onChange={handleChange} className={inputClass} />
           </div>
           <div>
             <label htmlFor="contact-message" className={labelClass}>Your Message</label>
-            <textarea id="contact-message" rows="5" placeholder="Your Message" className={inputClass} />
+            <textarea id="contact-message" name="message" rows="5" required placeholder="Your Message" value={fields.message} onChange={handleChange} className={inputClass} />
           </div>
           <motion.button
-            onClick={handleSend}
-            className="bg-blue-600 dark:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition"
+            type="submit"
+            disabled={status === 'sending'}
+            className="bg-blue-600 dark:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition disabled:opacity-60"
             whileHover={{ scale: 1.05, boxShadow: "0 0 10px rgba(59, 130, 246, 0.7)" }}
             whileTap={{ scale: 0.95 }}
           >
-            Send
+            {status === 'sending' ? 'Sending...' : 'Send'}
           </motion.button>
-        </motion.div>
+          {status === 'success' && (
+            <p className="text-sm font-medium text-green-600 dark:text-green-400" role="status">
+              Thank you! Your message has been sent. I will get back to you soon.
+            </p>
+          )}
+          {status === 'error' && (
+            <p className="text-sm font-medium text-red-600 dark:text-red-400" role="alert">
+              Sorry, the message could not be sent. Please email me directly at tegargemilangrasidi28@gmail.com.
+            </p>
+          )}
+        </motion.form>
       </div>
     </section>
   )

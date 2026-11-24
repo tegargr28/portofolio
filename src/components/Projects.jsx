@@ -45,14 +45,14 @@ const webProjects = [
   {
     title: 'Tiket Web',
     description: 'A web-based ticket booking app featuring user authentication, admin dashboard, and ticket management system.',
-    image: 'project1.png',
+    image: 'project1.webp',
     link: 'https://github.com/tegargr28/Tiket-web.git',
     tags: ['Laravel', 'MySQL', 'Tailwind CSS']
   },
   {
     title: 'Rajawali Merah (E-Commerce)',
     description: 'Developed a responsive e-commerce website using Laravel, MySQL, Bootstrap.',
-    image: 'project2.jpeg',
+    image: 'project2.webp',
     link: 'https://github.com/tegargr28/Ecommerce-web.git',
     tags: ['Laravel', 'MySQL', 'Bootstrap']
   }
