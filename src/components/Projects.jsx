@@ -47,6 +47,13 @@ const qaProjects = [
 
 const webProjects = [
   {
+    title: 'CHALIGULA (E-Commerce)',
+    description: 'A full-stack e-commerce store I built and deployed myself: a React storefront, an Express and TypeScript API, and a PostgreSQL database. Customers can register, shop and place orders, and the shop has a full admin dashboard for products, categories, orders and users.',
+    image: 'project3.webp',
+    link: 'https://chaligula.netlify.app',
+    tags: ['React', 'TypeScript', 'Express', 'PostgreSQL']
+  },
+  {
     title: 'Tiket Web',
     description: 'A web-based ticket booking app featuring user authentication, admin dashboard, and ticket management system.',
     image: 'project1.webp',
