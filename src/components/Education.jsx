@@ -8,7 +8,7 @@ const Education = () => {
       icon: <FaBriefcase />,
       title: "Work Experience",
       items: [
-        { role: "Frontend Web Developer – Rajawali Merah", period: "Jan 2023 – June 2023", desc: "Built responsive components and collaborated with design team." },
+        { role: "Full Stack Developer Intern – Rajawali Merah (E-commerce)", period: "Mar 2022 – Jun 2022", desc: "Built an e-commerce site for selling products using HTML, CSS, JavaScript, and PHP. Monitored the selling flow through an integrated dashboard and debugged issues using Chrome Developer Tools." },
         { role: "Freelance Web Developer", period: "Jul 2022 – Dec 2022", desc: "Developed portfolio websites and business landing pages." }
       ]
     },
@@ -17,7 +17,7 @@ const Education = () => {
       title: "Education",
       items: [
         { role: "SMA Negeri 2 Cikampek", period: "2017 – 2020", desc: "Majored in Software Engineering." },
-        { role: "Dian Nuswantoro University", period: "2019 – 2024", desc: "Bachelor's Degree in Informatics Engineering." }
+        { role: "Dian Nuswantoro University", period: "Oct 2019 – Dec 2024", desc: "Bachelor of Informatics Engineering, Semarang. GPA 3.10/4.00. Coursework: Web Based Programming, Advanced Web Programming, Responsive Web Design, Algorithm and Programming, Data Mining, Artificial Intelligence." }
       ]
     }
   ]
