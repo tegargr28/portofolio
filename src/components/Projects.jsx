@@ -1,13 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaUniversity, FaShoppingCart, FaUsers, FaRobot } from 'react-icons/fa'
+import { FaArrowRight } from 'react-icons/fa'
 
 const qaProjects = [
   {
     title: 'Digital Banking QA — ParaBank',
     description:
       'End-to-end QA portfolio on the ParaBank demo: 11 requirements and 13 scenarios traced in an RTM, with manual, API and SQL testing plus Selenium automation running in CI.',
-    icon: FaUniversity,
     link: 'https://github.com/tegargr28/digital-banking-qa',
     stats: ['47 test cases executed', '8 defects found (3 Critical)', '4 automated tests in CI'],
     tags: ['Manual Testing', 'Selenium', 'Pytest', 'Postman', 'SQL']
@@ -16,7 +15,6 @@ const qaProjects = [
     title: 'SauceDemo — Manual Testing',
     description:
       'Manual testing of the SauceDemo web shop covering Login, Products, Cart, Checkout, Menu and special user personas, with structured test cases and defect reports.',
-    icon: FaShoppingCart,
     link: 'https://github.com/tegargr28/saucedemo-manual-testing',
     stats: ['66 test cases executed', '4 defects reported'],
     tags: ['Manual Testing', 'Test Cases', 'Bug Reports']
@@ -25,7 +23,6 @@ const qaProjects = [
     title: 'OrangeHRM — Manual & API Testing',
     description:
       'Test plan, test cases and bug reports for the OrangeHRM demo, including API testing with Postman.',
-    icon: FaUsers,
     link: 'https://github.com/tegargr28/orangehrm-api-testing',
     stats: ['Test plan & test cases', 'API testing with Postman'],
     tags: ['Manual Testing', 'API Testing', 'Postman']
@@ -34,7 +31,6 @@ const qaProjects = [
     title: 'OrangeHRM — Cypress Automation',
     description:
       'Automated end-to-end and API tests for OrangeHRM built with Cypress and the Page Object Model, with HTML reports and GitHub Actions CI.',
-    icon: FaRobot,
     link: 'https://github.com/tegargr28/orange-api-testing-automation',
     stats: ['76 automated tests', 'E2E + API coverage', 'CI on every change'],
     tags: ['Cypress', 'Automation', 'Page Object Model', 'GitHub Actions']
@@ -59,11 +55,11 @@ const webProjects = [
 ]
 
 const TagList = ({ tags }) => (
-  <div className="flex flex-wrap gap-2 mb-5">
+  <div className="flex flex-wrap gap-2 mt-4">
     {tags.map((tag) => (
       <span
         key={tag}
-        className="px-2.5 py-1 text-xs font-medium rounded-full bg-blue-50 text-blue-700 dark:bg-gray-700 dark:text-blue-300 border border-blue-100 dark:border-gray-600"
+        className="px-2.5 py-1 text-xs font-medium rounded-full border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400"
       >
         {tag}
       </span>
@@ -71,91 +67,93 @@ const TagList = ({ tags }) => (
   </div>
 )
 
-const ProjectLink = ({ href }) => (
-  <motion.a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 font-medium text-blue-600 dark:text-blue-400 hover:underline"
-    whileHover={{ scale: 1.03 }}
-    whileTap={{ scale: 0.97 }}
-  >
-    <FaGithub /> View project →
-  </motion.a>
+const RowNumber = ({ n }) => (
+  <span className="text-4xl md:text-5xl font-extrabold text-gray-300 dark:text-gray-700 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-none">
+    {n}
+  </span>
 )
 
 const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="py-24 px-4 transition-colors duration-300 scroll-mt-20"
+      className="py-28 scroll-mt-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-5xl mx-auto">
-      <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">Portfolio</p>
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">Projects</h2>
-      </div>
+      <div className="max-w-6xl mx-auto px-6">
+        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-3">01 — Projects</p>
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white">Selected Work</h2>
+        <p className="mt-4 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          Quality assurance projects with real executed results, followed by the web development work that came before them.
+        </p>
 
-      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6 max-w-5xl mx-auto">Quality Assurance</h3>
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
-        {qaProjects.map((project) => (
-          <motion.article
-            key={project.title}
-            className="flex flex-col bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden text-left"
-            whileHover={{ y: -8 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="h-36 flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-700 dark:from-white/10 dark:to-white/5">
-              <project.icon className="text-6xl text-white/90" aria-hidden="true" />
-            </div>
-            <div className="p-6 flex flex-col flex-1">
-              <h4 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{project.title}</h4>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
-              <ul className="mb-4 space-y-1.5">
+        <h3 className="mt-16 mb-2 text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Quality Assurance</h3>
+        <div className="border-b border-gray-200 dark:border-gray-800">
+          {qaProjects.map((project, i) => (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group grid md:grid-cols-[5rem_1fr_15rem] gap-4 md:gap-8 py-8 border-t border-gray-200 dark:border-gray-800 px-2 -mx-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-white/5 transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <RowNumber n={String(i + 1).padStart(2, '0')} />
+              <div>
+                <h4 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                  {project.title}
+                  <FaArrowRight className="text-base text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </h4>
+                <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">{project.description}</p>
+                <TagList tags={project.tags} />
+              </div>
+              <ul className="space-y-1.5 md:text-right">
                 {project.stats.map((stat) => (
-                  <li key={stat} className="flex items-start gap-2 text-sm font-medium text-gray-800 dark:text-gray-200">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0"></span>
-                    {stat}
-                  </li>
+                  <li key={stat} className="text-sm font-medium text-gray-700 dark:text-gray-300">{stat}</li>
                 ))}
               </ul>
-              <div className="mt-auto">
-                <TagList tags={project.tags} />
-                <ProjectLink href={project.link} />
-              </div>
-            </div>
-          </motion.article>
-        ))}
-      </div>
+            </motion.a>
+          ))}
+        </div>
 
-      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6 max-w-5xl mx-auto">Web Development</h3>
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {webProjects.map((project) => (
-          <motion.article
-            key={project.title}
-            className="flex flex-col bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden text-left"
-            whileHover={{ y: -8 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="overflow-hidden">
+        <h3 className="mt-16 mb-2 text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Web Development</h3>
+        <div className="border-b border-gray-200 dark:border-gray-800">
+          {webProjects.map((project, i) => (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group grid sm:grid-cols-[5rem_11rem_1fr] gap-4 md:gap-8 py-8 border-t border-gray-200 dark:border-gray-800 px-2 -mx-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-white/5 transition-colors items-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <RowNumber n={String(i + 5).padStart(2, '0')} />
               <img
                 src={project.image}
                 alt={project.title}
                 loading="lazy"
-                className="w-full h-48 object-cover transition-transform duration-500 hover:scale-105"
+                className="hidden sm:block w-44 h-28 object-cover rounded-lg ring-1 ring-gray-200 dark:ring-gray-800"
               />
-            </div>
-            <div className="p-6 flex flex-col flex-1">
-              <h4 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{project.title}</h4>
-              <p className="text-gray-700 dark:text-gray-300 mb-4 flex-1">{project.description}</p>
-              <TagList tags={project.tags} />
-              <ProjectLink href={project.link} />
-            </div>
-          </motion.article>
-        ))}
+              <div>
+                <h4 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                  {project.title}
+                  <FaArrowRight className="text-base text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </h4>
+                <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">{project.description}</p>
+                <TagList tags={project.tags} />
+              </div>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </motion.section>
   )

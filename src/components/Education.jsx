@@ -25,38 +25,40 @@ const Education = () => {
   return (
     <motion.section
       id="education"
-      className="py-24 px-4 transition-colors duration-300 scroll-mt-20"
+      className="py-28 scroll-mt-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-6xl mx-auto"><p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">Background</p>
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">Experience</h2></div>
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-        {sections.map((section, idx) => (
-          <motion.div
-            key={idx}
-            className="rounded-2xl p-7 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800 transition-colors duration-300"
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="flex items-center space-x-3 mb-6 text-gray-900 dark:text-white text-xl">
-              {section.icon}
-              <h3 className="font-semibold">{section.title}</h3>
+      <div className="max-w-6xl mx-auto px-6">
+        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-3">03 — Resume</p>
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-14">Experience &amp; Education</h2>
+
+        <div className="space-y-16">
+          {sections.map((section) => (
+            <div key={section.title}>
+              <h3 className="flex items-center gap-3 text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                <span className="text-blue-600 dark:text-blue-400">{section.icon}</span>
+                {section.title}
+              </h3>
+              <div className="border-b border-gray-200 dark:border-gray-800">
+                {section.items.map((item) => (
+                  <div
+                    key={item.role}
+                    className="grid md:grid-cols-[13rem_1fr] gap-2 md:gap-8 py-6 border-t border-gray-200 dark:border-gray-800"
+                  >
+                    <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 pt-1">{item.period}</p>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{item.role}</h4>
+                      <p className="mt-1.5 text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="relative border-l-2 border-blue-100 dark:border-gray-700 ml-2 pl-6 space-y-6">
-              {section.items.map((item, i) => (
-                <div key={i} className="relative">
-                  <span className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-400 ring-4 ring-blue-50 dark:ring-gray-800"></span>
-                  <h4 className="font-bold text-gray-800 dark:text-white">{item.role}</h4>
-                  <p className="text-sm font-medium text-blue-600 dark:text-blue-400">{item.period}</p>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
     </motion.section>
   )
