@@ -4,6 +4,14 @@ import { FaArrowRight } from 'react-icons/fa'
 
 const qaProjects = [
   {
+    title: 'CHALIGULA — E-Commerce QA',
+    description:
+      'QA for a live e-commerce app I built and deployed myself. Manual testing of the shop in the browser, 29 API cases executed against the production API, and a pytest automation suite, all recorded in one workbook with requirements, an RTM and defect reports.',
+    link: 'https://github.com/tegargr28/chaligula-qa',
+    stats: ['29 API cases executed (28 passed)', '13 manual test cases', '2 defects found', 'Pytest + Playwright automation'],
+    tags: ['Manual Testing', 'API Testing', 'Pytest', 'Playwright']
+  },
+  {
     title: 'Digital Banking QA — ParaBank',
     description:
       'End-to-end QA portfolio on the ParaBank demo: 11 requirements and 13 scenarios traced in an RTM, with manual, API and SQL testing plus Selenium automation running in CI.',
