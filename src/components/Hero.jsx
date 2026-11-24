@@ -130,7 +130,7 @@ const Hero = () => {
             </motion.a>
 
             <motion.a
-              href="/cv_tegar.pdf"
+              href="/CV_TegarGemilangRasidi_QA.pdf"
               download
               className="inline-block px-6 py-3 
                 border border-blue-600 dark:border-blue-400
