@@ -5,7 +5,7 @@ const Footer = () => {
   const year = new Date().getFullYear()
   const socials = [
     { icon: FaLinkedin, href: 'https://www.linkedin.com/in/muhammad-tegar-gemilang-rasidi-6095b3138/', label: 'LinkedIn' },
-    { icon: FaGithub, href: 'https://github.com/Tegarg28', label: 'GitHub' },
+    { icon: FaGithub, href: 'https://github.com/tegargr28', label: 'GitHub' },
     { icon: FaTwitter, href: 'https://twitter.com/tegargemilang', label: 'Twitter' },
   ]
   const links = [
