@@ -18,10 +18,10 @@ const Navbar = () => {
   const toggleDarkMode = () => setDark((prev) => !prev)
 
   const links = [
-    { href: '#projects', label: 'Projects', num: '01' },
-    { href: '#about', label: 'About', num: '02' },
-    { href: '#education', label: 'Resume', num: '03' },
-    { href: '#contact', label: 'Contact', num: '04' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#about', label: 'About' },
+    { href: '#education', label: 'Resume' },
+    { href: '#contact', label: 'Contact' },
   ]
 
   const navClass =
@@ -54,7 +54,6 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-7">
           {links.map((link) => (
             <a key={link.href} href={link.href} className={navClass}>
-              <span className="text-xs text-blue-600 dark:text-blue-400 font-semibold mr-1">{link.num}</span>
               {link.label}
             </a>
           ))}
@@ -77,7 +76,6 @@ const Navbar = () => {
               className="block py-2 text-gray-800 dark:text-gray-100 font-medium"
               onClick={() => setOpen(false)}
             >
-              <span className="text-xs text-blue-600 dark:text-blue-400 font-semibold mr-1">{link.num}</span>
               {link.label}
             </a>
           ))}

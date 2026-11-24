@@ -33,9 +33,6 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-8">
-            Portfolio — QA Engineer
-          </p>
           <p className="text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-tight text-gray-900 dark:text-white">
             Quality first,
             <br />
@@ -112,9 +109,6 @@ const Hero = () => {
               alt="Tegar Gemilang"
               className="w-full h-[26rem] object-cover object-center rounded-xl ring-1 ring-gray-200 dark:ring-gray-800"
             />
-            <p className="mt-3 text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 text-center lg:text-right">
-              Manual • Automation • API • SQL
-            </p>
           </div>
         </motion.div>
       </div>

@@ -32,7 +32,6 @@ const Education = () => {
       viewport={{ once: true }}
     >
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-3">03 — Resume</p>
         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-14">Experience &amp; Education</h2>
 
         <div className="space-y-16">
