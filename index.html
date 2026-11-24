@@ -9,7 +9,7 @@
       content="Portfolio of Muhammad Tegar Gemilang Rasidi, a QA Engineer and web developer from Karawang, Indonesia. Manual and automation testing with Selenium, Cypress, Postman and SQL, with a background in building web applications with React and Laravel."
     />
     <meta name="author" content="Muhammad Tegar Gemilang Rasidi" />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#0a0a0a" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://tegargr28.netlify.app/" />
@@ -36,7 +36,7 @@
       (function () {
         try {
           var saved = localStorage.getItem('theme')
-          if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          if (saved === 'dark' || !saved) {
             document.documentElement.classList.add('dark')
           }
         } catch (e) {}

@@ -25,24 +25,23 @@ const Education = () => {
   return (
     <motion.section
       id="education"
-      className="py-20 px-4 bg-blue-50 dark:bg-gray-900 transition-colors duration-300 scroll-mt-20"
+      className="py-24 px-4 transition-colors duration-300 scroll-mt-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2 text-center">Background</p>
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-blue-300">Experience</h2>
+      <div className="max-w-6xl mx-auto"><p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">Background</p>
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">Experience</h2></div>
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
         {sections.map((section, idx) => (
           <motion.div
             key={idx}
-            className="rounded-2xl shadow-md p-7 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 transition-colors duration-300"
-            whileHover={{ boxShadow: "0 0 15px rgba(59, 130, 246, 0.5)" }}
+            className="rounded-2xl p-7 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800 transition-colors duration-300"
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="flex items-center space-x-3 mb-6 text-blue-700 dark:text-blue-400 text-xl">
+            <div className="flex items-center space-x-3 mb-6 text-gray-900 dark:text-white text-xl">
               {section.icon}
               <h3 className="font-semibold">{section.title}</h3>
             </div>

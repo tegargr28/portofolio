@@ -17,11 +17,11 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <footer className="bg-white dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-center md:text-left">
           <p className="text-lg font-bold text-gray-900 dark:text-white">
-            Tegar<span className="text-blue-600 dark:text-blue-400"> Gemilang</span>
+            Tegar Gemilang<span className="text-blue-600 dark:text-blue-400">.</span>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
             QA Engineer &amp; Web Developer — Karawang, Indonesia
@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-gray-200 dark:border-gray-800 py-4 text-center text-sm text-gray-500 dark:text-gray-400 px-6">
-        © {year} Muhammad Tegar Gemilang Rasidi. Built with React, Vite and Tailwind CSS.
+        © {year} Muhammad Tegar Gemilang Rasidi. Built with React, Vite and Tailwind CSS. Design inspired by FolioOne by BootstrapMade.
       </div>
     </footer>
   )

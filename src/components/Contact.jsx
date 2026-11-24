@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 const Contact = () => {
   const inputClass =
-    'w-full border border-gray-300 dark:border-gray-700 p-3 rounded-md bg-transparent dark:bg-gray-700 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all'
+    'w-full border border-gray-300 dark:border-gray-700 p-3 rounded-lg bg-transparent dark:bg-white/5 text-gray-900 dark:text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all'
   const labelClass = 'block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5 text-left'
 
   const [fields, setFields] = useState({ name: '', email: '', message: '' })
@@ -16,7 +16,7 @@ const Contact = () => {
     e.preventDefault()
     setStatus('sending')
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ 'form-name': 'contact', ...fields }).toString()
@@ -33,16 +33,17 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 bg-blue-50 dark:bg-gray-900 transition-colors duration-300 scroll-mt-20">
-      <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2 text-center">Contact</p>
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-blue-300">Get In Touch</h2>
-      <p className="text-center max-w-2xl mx-auto text-gray-700 dark:text-gray-400 mb-12">
+    <section id="contact" className="py-24 px-4 transition-colors duration-300 scroll-mt-20">
+      <div className="max-w-6xl mx-auto">
+      <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">Contact</p>
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Get In Touch</h2>
+      <p className="max-w-2xl text-gray-600 dark:text-gray-400 mb-12">
         I'm always open to discuss new opportunities, freelance projects, or collaboration ideas. Feel free to reach out!
       </p>
+      </div>
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
         <motion.div
-          className="rounded-2xl shadow-lg p-8 space-y-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-fit"
-          whileHover={{ boxShadow: "0 0 15px rgba(59, 130, 246, 0.5)" }}
+          className="rounded-2xl p-8 space-y-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800 h-fit"
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.3 }}
         >
@@ -77,8 +78,7 @@ const Contact = () => {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
-          className="rounded-2xl shadow-lg p-8 space-y-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
-          whileHover={{ boxShadow: "0 0 15px rgba(59, 130, 246, 0.5)" }}
+          className="rounded-2xl p-8 space-y-4 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800"
           transition={{ duration: 0.3 }}
         >
           <input type="hidden" name="form-name" value="contact" />
@@ -102,8 +102,8 @@ const Contact = () => {
           <motion.button
             type="submit"
             disabled={status === 'sending'}
-            className="bg-blue-600 dark:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition disabled:opacity-60"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 10px rgba(59, 130, 246, 0.7)" }}
+            className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-7 py-3 rounded-lg font-semibold hover:bg-gray-700 dark:hover:bg-gray-200 transition disabled:opacity-60"
+            whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.95 }}
           >
             {status === 'sending' ? 'Sending...' : 'Send'}
