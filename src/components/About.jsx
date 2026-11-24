@@ -5,25 +5,25 @@ import { SiTailwindcss, SiSelenium, SiCypress, SiPytest, SiPostman, SiJira, SiMy
 
 const About = () => {
   const devSkills = [
-    { icon: FaHtml5, label: 'HTML5' },
-    { icon: FaCss3Alt, label: 'CSS3' },
-    { icon: FaJs, label: 'JavaScript' },
-    { icon: FaReact, label: 'React' },
-    { icon: SiTailwindcss, label: 'Tailwind CSS' },
-    { icon: FaGitAlt, label: 'Git' },
-    { icon: FaFigma, label: 'Figma' },
-    { icon: FaLaravel, label: 'Laravel' },
+    { icon: FaHtml5, label: 'HTML5', color: '#E34F26' },
+    { icon: FaCss3Alt, label: 'CSS3', color: '#1572B6' },
+    { icon: FaJs, label: 'JavaScript', color: '#EAB308' },
+    { icon: FaReact, label: 'React', color: '#0891C2' },
+    { icon: SiTailwindcss, label: 'Tailwind CSS', color: '#06B6D4' },
+    { icon: FaGitAlt, label: 'Git', color: '#F05032' },
+    { icon: FaFigma, label: 'Figma', color: '#F24E1E' },
+    { icon: FaLaravel, label: 'Laravel', color: '#FF2D20' },
   ]
 
   const qaSkills = [
-    { icon: SiSelenium, label: 'Selenium' },
-    { icon: SiCypress, label: 'Cypress' },
-    { icon: SiPytest, label: 'Pytest' },
-    { icon: FaPython, label: 'Python' },
-    { icon: SiPostman, label: 'Postman' },
-    { icon: SiMysql, label: 'MySQL / SQL' },
-    { icon: SiJira, label: 'Jira' },
-    { icon: SiGithubactions, label: 'GitHub Actions' },
+    { icon: SiSelenium, label: 'Selenium', color: '#43B02A' },
+    { icon: SiCypress, label: 'Cypress', color: '#00C389' },
+    { icon: SiPytest, label: 'Pytest', color: '#0A9EDC' },
+    { icon: FaPython, label: 'Python', color: '#3776AB' },
+    { icon: SiPostman, label: 'Postman', color: '#FF6C37' },
+    { icon: SiMysql, label: 'MySQL / SQL', color: '#4479A1' },
+    { icon: SiJira, label: 'Jira', color: '#0052CC' },
+    { icon: SiGithubactions, label: 'GitHub Actions', color: '#2088FF' },
   ]
 
   const SkillGroup = ({ title, items }) => (
@@ -31,10 +31,32 @@ const About = () => {
       <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-4">{title}</p>
       <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
         {items.map((skill) => (
-          <li key={skill.label} className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
-            <skill.icon className="text-2xl text-gray-500 dark:text-gray-400 shrink-0" aria-hidden="true" />
-            <span className="font-medium">{skill.label}</span>
-          </li>
+          <motion.li
+            key={skill.label}
+            className="group flex items-center gap-3 px-2 -mx-2 py-1.5 -my-1.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors duration-200"
+            initial="rest"
+            whileHover="hover"
+            animate="rest"
+          >
+            <motion.span
+              className="shrink-0 flex"
+              variants={{
+                rest: { scale: 1, rotate: 0 },
+                hover: {
+                  scale: 1.45,
+                  rotate: -12,
+                  transition: { type: 'spring', stiffness: 350, damping: 7 }
+                }
+              }}
+            >
+              <skill.icon
+                className="text-2xl text-gray-500 dark:text-gray-400 group-hover:[color:var(--brand)] transition-colors duration-200"
+                style={{ '--brand': skill.color }}
+                aria-hidden="true"
+              />
+            </motion.span>
+            <span className="font-medium group-hover:translate-x-1 group-hover:text-gray-900 dark:group-hover:text-white transition-all duration-200">{skill.label}</span>
+          </motion.li>
         ))}
       </ul>
     </div>
