@@ -193,7 +193,7 @@ const Hero = () => {
             transition={{ duration: 0.3 }}
           >
             <img
-              src="tegar.jpg"
+              src="tegar.webp"
               alt="Tegar Gemilang"
               className="w-full h-full object-cover object-center"
             />
