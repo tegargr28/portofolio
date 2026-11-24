@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tegargr28.netlify.app/sitemap.xml

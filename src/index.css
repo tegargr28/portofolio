@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-  @apply bg-white dark:bg-gray-900 transition-colors duration-300;
+  scroll-behavior: smooth;
 }
 
-  
+body {
+  @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased transition-colors duration-300;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  @apply bg-blue-600 text-white;
+}
