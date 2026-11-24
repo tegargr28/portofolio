@@ -50,7 +50,6 @@ const About = () => {
       viewport={{ once: true }}
     >
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-3">02 — About</p>
         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12">About Me</h2>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">

@@ -49,7 +49,6 @@ const Contact = () => {
   return (
     <section id="contact" className="py-28 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-3">04 — Contact</p>
         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Let's Work Together</h2>
         <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
           I'm always open to discuss new opportunities, freelance projects, or collaboration ideas. Feel free to reach out!

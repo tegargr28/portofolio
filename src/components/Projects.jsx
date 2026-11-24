@@ -67,12 +67,6 @@ const TagList = ({ tags }) => (
   </div>
 )
 
-const RowNumber = ({ n }) => (
-  <span className="text-4xl md:text-5xl font-extrabold text-gray-300 dark:text-gray-700 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-none">
-    {n}
-  </span>
-)
-
 const Projects = () => {
   return (
     <motion.section
@@ -84,7 +78,6 @@ const Projects = () => {
       viewport={{ once: true }}
     >
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 mb-3">01 — Projects</p>
         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white">Selected Work</h2>
         <p className="mt-4 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
           Quality assurance projects with real executed results, followed by the web development work that came before them.
@@ -92,19 +85,18 @@ const Projects = () => {
 
         <h3 className="mt-16 mb-2 text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Quality Assurance</h3>
         <div className="border-b border-gray-200 dark:border-gray-800">
-          {qaProjects.map((project, i) => (
+          {qaProjects.map((project) => (
             <motion.a
               key={project.title}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid md:grid-cols-[5rem_1fr_15rem] gap-4 md:gap-8 py-8 border-t border-gray-200 dark:border-gray-800 px-2 -mx-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-white/5 transition-colors"
+              className="group grid md:grid-cols-[1fr_15rem] gap-4 md:gap-8 py-8 border-t border-gray-200 dark:border-gray-800 px-2 -mx-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-white/5 transition-colors"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
-              <RowNumber n={String(i + 1).padStart(2, '0')} />
               <div>
                 <h4 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
                   {project.title}
@@ -124,19 +116,18 @@ const Projects = () => {
 
         <h3 className="mt-16 mb-2 text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Web Development</h3>
         <div className="border-b border-gray-200 dark:border-gray-800">
-          {webProjects.map((project, i) => (
+          {webProjects.map((project) => (
             <motion.a
               key={project.title}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid sm:grid-cols-[5rem_11rem_1fr] gap-4 md:gap-8 py-8 border-t border-gray-200 dark:border-gray-800 px-2 -mx-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-white/5 transition-colors items-center"
+              className="group grid sm:grid-cols-[11rem_1fr] gap-4 md:gap-8 py-8 border-t border-gray-200 dark:border-gray-800 px-2 -mx-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-white/5 transition-colors items-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
-              <RowNumber n={String(i + 5).padStart(2, '0')} />
               <img
                 src={project.image}
                 alt={project.title}
