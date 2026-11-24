@@ -48,23 +48,8 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen w-full flex items-center
-        bg-gradient-to-br from-blue-50 to-sky-100
-        dark:bg-gradient-to-br dark:from-slate-900 dark:to-gray-900
-        py-24 relative scroll-mt-20"
+      className="min-h-screen w-full flex items-center py-28 relative scroll-mt-20"
     >
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div
-          className="absolute -top-20 -left-20 w-72 h-72
-            bg-blue-200 dark:bg-blue-900
-            rounded-full opacity-20 dark:opacity-10"
-        ></div>
-        <div
-          className="absolute bottom-20 right-20 w-96 h-96
-            bg-sky-200 dark:bg-sky-900
-            rounded-full opacity-15 dark:opacity-10"
-        ></div>
-      </div>
 
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-10 relative z-10 max-w-6xl">
         <motion.div
@@ -78,17 +63,17 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1 mb-5 rounded-full bg-white/70 dark:bg-gray-800/70 border border-blue-200 dark:border-gray-700 text-sm font-medium text-blue-800 dark:text-blue-300">
+            <span className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-white dark:bg-white/5 border border-gray-300 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300">
               <span className="w-2 h-2 rounded-full bg-green-500"></span>
               Open to QA Engineer opportunities
             </span>
-            <p className="text-lg text-blue-800 dark:text-gray-300">
+            <p className="text-lg text-gray-500 dark:text-gray-400">
               Hello, I'm
             </p>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-blue-900 dark:text-white">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-gray-900 dark:text-white">
               Tegar Gemilang
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-blue-800 dark:text-blue-300">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-blue-600 dark:text-blue-400">
               QA Engineer &amp; Web Developer
             </h2>
           </motion.div>
@@ -96,7 +81,7 @@ const Hero = () => {
           <AnimatePresence mode="wait">
             <motion.p
               key={index}
-              className="text-lg mb-8 text-blue-800 dark:text-blue-200 max-w-xl mx-auto lg:mx-0 min-h-[3.5rem]"
+              className="text-lg mb-10 text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 min-h-[3.5rem]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -114,19 +99,14 @@ const Hero = () => {
           >
             <motion.a
               href="#projects"
-              className="inline-block px-6 py-3
-                bg-blue-600 dark:bg-blue-700
-                text-white
-                rounded-full
-                hover:bg-blue-700 dark:hover:bg-blue-600
+              className="inline-block px-7 py-3
+                bg-gray-900 dark:bg-white
+                text-white dark:text-gray-900
+                rounded-lg
+                hover:bg-gray-700 dark:hover:bg-gray-200
                 transition-colors
-                shadow-md hover:shadow-lg
-                dark:shadow-blue-900/50
                 font-semibold"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 15px rgba(59, 130, 246, 0.7)"
-              }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
             >
               Explore My Work
@@ -135,15 +115,15 @@ const Hero = () => {
             <motion.a
               href="/CV_TegarGemilangRasidi_QA.pdf"
               download
-              className="inline-block px-6 py-3
-                border border-blue-600 dark:border-blue-400
-                text-blue-600 dark:text-blue-300
-                rounded-full
-                hover:bg-blue-50 dark:hover:bg-gray-800
+              className="inline-block px-7 py-3
+                border border-gray-400 dark:border-gray-600
+                text-gray-800 dark:text-gray-200
+                rounded-lg
+                hover:bg-gray-100 dark:hover:bg-white/10
                 transition-colors
                 font-semibold
                 flex items-center gap-2"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
             >
               <FaFileDownload /> Download CV
@@ -182,14 +162,8 @@ const Hero = () => {
           <motion.div
             className="relative w-64 h-64 md:w-80 md:h-96
               overflow-hidden rounded-2xl
-              shadow-xl hover:shadow-2xl
-              transition-shadow
-              border-4 border-white
-              dark:border-gray-800
-              transform hover:scale-105"
-            whileHover={{
-              boxShadow: "0 0 25px rgba(59, 130, 246, 0.6)"
-            }}
+              ring-1 ring-gray-200 dark:ring-gray-800
+              transform hover:scale-[1.02] transition-transform"
             transition={{ duration: 0.3 }}
           >
             <img

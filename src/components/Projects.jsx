@@ -88,25 +88,27 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="py-20 px-4 text-center bg-blue-50 dark:bg-gray-900 transition-colors duration-300 scroll-mt-20"
+      className="py-24 px-4 transition-colors duration-300 scroll-mt-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
+      <div className="max-w-5xl mx-auto">
       <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">Portfolio</p>
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-blue-300">Projects</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">Projects</h2>
+      </div>
 
-      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Quality Assurance</h3>
+      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6 max-w-5xl mx-auto">Quality Assurance</h3>
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
         {qaProjects.map((project) => (
           <motion.article
             key={project.title}
-            className="flex flex-col bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-shadow duration-300 text-left"
+            className="flex flex-col bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden text-left"
             whileHover={{ y: -8 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="h-36 flex items-center justify-center bg-gradient-to-br from-blue-600 to-sky-500 dark:from-blue-800 dark:to-slate-800">
+            <div className="h-36 flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-700 dark:from-white/10 dark:to-white/5">
               <project.icon className="text-6xl text-white/90" aria-hidden="true" />
             </div>
             <div className="p-6 flex flex-col flex-1">
@@ -129,12 +131,12 @@ const Projects = () => {
         ))}
       </div>
 
-      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6">Web Development</h3>
+      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6 max-w-5xl mx-auto">Web Development</h3>
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {webProjects.map((project) => (
           <motion.article
             key={project.title}
-            className="flex flex-col bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden transition-shadow duration-300 text-left"
+            className="flex flex-col bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden text-left"
             whileHover={{ y: -8 }}
             transition={{ duration: 0.3 }}
           >

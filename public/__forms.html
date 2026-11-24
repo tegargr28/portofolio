@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form registration</title>
+  </head>
+  <body>
+    <!-- Static copy of the contact form so Netlify Forms can detect and register it at deploy time. -->
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </p>
+      <label>Your Name <input type="text" name="name" /></label>
+      <label>Your Email <input type="email" name="email" /></label>
+      <label>Your Message <textarea name="message"></textarea></label>
+      <button type="submit">Send</button>
+    </form>
+  </body>
+</html>

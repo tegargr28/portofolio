@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-[#faf8f3] dark:bg-[#1a1a1a] text-[#4e3f30] dark:text-gray-200 transition-colors duration-500">
+    <div className="min-h-screen bg-[#fafafa] dark:bg-[#0a0a0a] text-gray-700 dark:text-gray-400 transition-colors duration-500">
       <Navbar />
       <main>
         <Hero />

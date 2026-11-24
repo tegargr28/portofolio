@@ -26,7 +26,7 @@ const Navbar = () => {
   ]
 
   const navClass =
-    'text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-300 font-medium transition-colors duration-300'
+    'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white font-medium transition-colors duration-300'
 
   const themeButton = (
     <button
@@ -40,10 +40,10 @@ const Navbar = () => {
   )
 
   return (
-    <nav className="fixed w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm border-b border-gray-200/70 dark:border-gray-800 transition-colors duration-300">
+    <nav className="fixed w-full z-50 bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-md border-b border-gray-200/70 dark:border-gray-800/80 transition-colors duration-300">
       <div className="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
-        <a href="#home" className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Tegar<span className="text-blue-600 dark:text-blue-400"> Gemilang</span>
+        <a href="#home" className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+          Tegar Gemilang<span className="text-blue-600 dark:text-blue-400">.</span>
         </a>
         <div className="md:hidden flex items-center gap-3">
           {themeButton}
@@ -61,7 +61,7 @@ const Navbar = () => {
         </div>
       </div>
       {open && (
-        <div className="md:hidden bg-white dark:bg-gray-900 shadow-md px-6 pb-4 border-t border-gray-100 dark:border-gray-800">
+        <div className="md:hidden bg-white dark:bg-[#0a0a0a] px-6 pb-4 border-t border-gray-100 dark:border-gray-800">
           {links.map((link) => (
             <a
               key={link.href}

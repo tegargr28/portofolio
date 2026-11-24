@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased transition-colors duration-300;
+  @apply bg-white dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-100 antialiased transition-colors duration-300;
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
